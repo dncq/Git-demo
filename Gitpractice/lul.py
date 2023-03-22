@@ -1,0 +1,1 @@
+print("co con mo chim trong bo chiu kho")
