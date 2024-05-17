@@ -50,9 +50,37 @@ while True:
 for i in res:
     print(i)'''
 
+#--------------------------------------------------------
+#Queue Simulator
+"""
+def queue(cmd):
+    curr_queue = []
+    pop = []
+    for e in cmd:
+        if e.split()[0] == "PUSH":
+            curr_queue.append(e.split()[1])
+        elif e == "POP":
+            if len(curr_queue) == 0:
+                pop.append("NULL")
+            else:
+                pop.append(curr_queue[0])
+                curr_queue.remove(curr_queue[0])
+    return pop
+command = []
+while True:
+    cmd = input()
+    if cmd == "#":
+        break
+    command.append(cmd)
+for i in queue(command):
+    print(i)
+"""
+
+
 # -------------------------------------------------------
 # WATER JUGS
-'''import sys
+"""
+import sys
 class State:
     def __init__(self,x,y,step) -> None:
         self.x = x # amount in Jug 1
@@ -132,5 +160,6 @@ s = solve()
 if s == None:
     print('-1')
 else:
-    print(s.step)'''
+    print(s.step)
+"""
 

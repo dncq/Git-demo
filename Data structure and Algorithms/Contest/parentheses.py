@@ -54,7 +54,30 @@ s = input()
 print(check(s,f))
 '''
 
-        
+#-------------------------------------
+# Using list
 
-        
-    
+def pop_stack(arr):
+    return arr[-1]
+
+def check_match(s):
+    stack = []
+    for par in s:
+        if par == "(" or par == "[" or par == "{":
+            stack.append(par)
+        else:
+            if len(stack) == 0:
+                return 0
+            else:
+                if (par == ")" and pop_stack(stack) == "(") or \
+                    (par == "]" and pop_stack(stack) == "[") or \
+                    (par == "}" and pop_stack(stack) == "{"):
+                    stack.pop()
+                else:
+                    return 0
+    if len(stack) == 0:
+        return 1
+    return 0
+
+s = input()
+print(check_match(s))

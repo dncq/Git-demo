@@ -105,34 +105,37 @@ import sys
 # ------------------------------------------------------------
 
 #Not so good implementation (Sinh dãy n phần tử có tổng = N)
-# #import sys
+import sys
 
-# def input():
-#     [n,N] = [int(x) for x in sys.stdin.readline().split()]
-#     return n,N
+def input():
+    [n,N] = [int(x) for x in sys.stdin.readline().split()]
+    return n,N
 
-# n,N = input()
-# x = [0 for i in range(n+1)]
+n,N = input()
+x = [0 for i in range(n+1)]
 
-# def check(v,k):
-#     T = 0 
-#     for i in range(1,k):
-#         T = T + x[i]
-#     if k < n:
-#         return T + v < N
-#     else:
-#         return T + v == N
+def check(v,k):
+    T = 0 
+    for i in range(1,k):
+        T = T + x[i]
+    if k < n:
+        return T + v < N
+    else:
+        return T + v == N
 
-# def solution():
-#     print(x[1:])
+def solution():
+    for i in x[1:]:
+        print(i, end=" ")
+    print()
+    # print(*x[1:])
 
-# def Try(k):
-#     for v in range(1,N+1):
-#         if check(v,k):
-#             x[k] = v
-#             if k == n:
-#                 solution()
-#             else:
-#                 Try(k+1)
+def Try(k):
+    for v in range(1,N+1):
+        if check(v,k):
+            x[k] = v
+            if k == n:
+                solution()
+            else:
+                Try(k+1)
 
-# Try(1)
+Try(1)

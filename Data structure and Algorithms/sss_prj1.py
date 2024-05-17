@@ -9,8 +9,7 @@ class Node:
 class BST:
  def __init__(self):
   self.root = None 
- 
- #private function 
+
  def __Find__(self,k,r):
   if r == None:
    return None 
@@ -21,11 +20,9 @@ class BST:
   else:
    return self.__Find__(k,r.leftChild)
    
- #public function  
  def Find(self, k):
   return self.__Find__(k,self.root) 
    
- # private function  
  def __Insert__(self,k,r):
   if r == None:
    return Node(k) 
@@ -38,7 +35,7 @@ class BST:
  def Insert(self, k):
   p = self.Find(k)
   if p != None:
-   return 0 # key k exists, insert fail 
+   return 0 
   self.root = self.__Insert__(k,self.root) 
   return 1
   
@@ -46,7 +43,6 @@ m = 100000
 bst = [BST() for i in range(m)]
 
 def h(k):
- # return the hashCode of the key k 
  code = 0
  for i in range(len(k)):
   code = code*256 + ord(k[i])
@@ -55,42 +51,37 @@ def h(k):
  
  
 def Find(k):
- idx = h(k) # hashCode -> specify the corresponding index 
+ idx = h(k) 
  p = bst[idx].Find(k)
  if p != None:
-  return 1 # FOUND
- return 0   #NOT FOUND 
+  return 1 
+ return 0  
  
 def Insert(k):
  idx = h(k)
  res = bst[idx].Insert(k)
  return res 
  
-def main(): 
+def run(): 
  while True:
-  line = input()
-  if line == "*":
+  line = [x for x in sys.stdin.readline().split()]
+  if line[0] == '*':
    break
-  Insert(line)
+  Insert(line[0])
  
-  query = []
-  while True:
-    cmd = input()
-    if cmd == "***":
-      break
-    query.append(cmd.split())
+ output = []
+ while True:
+  line = [x for x in sys.stdin.readline().split()]
+  if line[0] == '***':
+   break 
+  if line[0] == 'find':
+   res = Find(line[1])
+   output.append(res)
+  elif line[0] == 'insert':
+   res = Insert(line[1])
+   output.append(res)
+ for out in output:
+  print(out)
+   
 
-  res = []
-  for line in query:
-    if line[0] == 'find':
-      res.append(Find(line[1]))
-    elif line[0] == 'insert':
-      res.append(Insert(line[1]))
-
-  for i in res:
-   print(i)
-
-if __name__ == "__main__":
-  main()
-
-
+run()

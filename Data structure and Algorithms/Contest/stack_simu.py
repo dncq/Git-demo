@@ -1,4 +1,4 @@
-# Code cuả cụ Quý
+# Code của cụ Quý
 '''class Node:
     def __init__(self,val):
         self.val = val
@@ -42,6 +42,34 @@ for i in res:
 
 
 # Code của cháu Trường
+"""
+def stack(cmd):
+    curr_stack = []
+    pop = []
+    for e in cmd:
+        if e.split()[0] == "PUSH":
+            curr_stack.append(e.split()[1])
+        elif e == "POP":
+            if len(curr_stack) == 0:
+                pop.append("NULL")
+            else:
+                pop.append(curr_stack[-1])
+                curr_stack.pop()
+    return pop
+command = []
+while True:
+    cmd = input()
+    if cmd == "#":
+        break
+    command.append(cmd)
+            
+res = stack(command)
+for i in res:
+    print(i)
+"""
+
+
+
 ''' myInput = []
 while True:
     strg = input()
@@ -75,10 +103,3 @@ elif len(S) == 0:
 else:
     for i in S:
         print(i)'''
-
-
-
-
-
-
-

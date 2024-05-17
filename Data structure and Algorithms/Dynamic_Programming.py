@@ -128,4 +128,68 @@ s.reverse()
 print(s)
 print(res)
 '''
+# import sys
+# def input():
+#     [n,M] = [int(x) for x in sys.stdin.readline().split()]
+#     s = [int(x) for x in sys.stdin.readline().split()]
+#     return n, M, s
 
+# def main():
+#     n, M, s = input()
+#     Q = 0
+#     for i in range(n-1):
+#         for j in range(i+1, n):
+#             if s[i] + s[j] == M:
+#                 Q += 1
+#     print(Q)
+
+# if __name__ == "__main__":
+#     main()
+
+def count_pairs(a, n, M):
+  """
+  Đếm số cặp (i,j) sao cho 1 <= i < j <= n và ai + aj = M.
+
+  Args:
+    a: Dãy các số nguyên dương.
+    n: Độ dài của dãy.
+    M: Giá trị cần tìm.
+
+  Returns:
+    Số cặp (i,j) thỏa mãn.
+  """
+
+  # Khởi tạo mảng dp[i]
+
+  dp = [0] * (n + 1)
+  dp[0] = 1
+
+  # Duyệt qua tất cả các phần tử của dãy
+
+  for i in range(1, n + 1):
+    # Tính dp[i]
+
+    dp[i] = dp[i - 1] + (a[i] <= M) * dp[i - 1]
+
+  # Trả về kết quả
+
+  return dp[n]
+
+
+def main():
+  # Nhập dữ liệu
+
+  n, M = map(int, input().split())
+  a = list(map(int, input().split())).append(10**9)
+
+  # Giải bài toán
+
+  Q = count_pairs(a, n, M)
+
+  # In kết quả
+
+  print(Q)
+
+
+if __name__ == "__main__":
+  main()

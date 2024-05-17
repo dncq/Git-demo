@@ -12,3 +12,12 @@ memo = {}
 print('%.0f' % C(int(k),int(n)))
 
 
+# memo = {}
+# def fib(k):
+#     if  k == 1 or k == 2:
+#         memo[k] = 1
+#     if k not in memo:
+#         memo[k] = fib(k-1) + fib(k-2)
+#     return memo[k]
+# n = int(input())
+# print(fib(n-1))

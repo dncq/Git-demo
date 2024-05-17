@@ -52,17 +52,18 @@ def addafter(u, v, f):
     
     if(Find(u, f)): 
         return f
-    if not (Find(v, f)): 
-        return f
-    # while(p.val != v):
-    #     if(p.next == None): 
-    #         break
-    #     p = p.next
-    
-
-    # if(p.val != v): 
+    # if not (Find(v, f)): 
     #     return f
     p = f
+    while(p.val != v):
+        if(p.next == None): 
+            break
+        p = p.next
+    
+
+    if(p.val != v): 
+        return f
+
     k = Node(u)
 
     k.next = p.next

@@ -33,6 +33,7 @@ def printConnectedComponent():
             if c[v] == k:
                 print(v, end = ' ')
         print('')
+        
 n,m,A = input()
 c = [-1 for v in range(n+1)]
 nbCC = 0

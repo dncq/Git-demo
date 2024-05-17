@@ -51,28 +51,28 @@
 
 #Generate all m-element subset of the set of n-element
 # Equivalent to the problem: Enumerate all set S(m,n) = {(a1,a2,.., am) s.t 1<= a1 < a2 < ... < am <= n}
-import sys
-def input():
-    [m,n] = [int(x) for x in sys.stdin.readline().split()]
-    return m,n
-m,n = input()
-x = [0 for i in range(m)]
-# count = 0
-def Try(k):
-    for v in range(x[k-1] + 1, n-m+k+2):
-        x[k] = v
-        if k == m-1: 
-            solution()
-        else:
-            Try(k+1)
+# import sys
+# def input():
+#     [m,n] = [int(x) for x in sys.stdin.readline().split()]
+#     return m,n
+# m,n = input()
+# x = [0 for i in range(m)]
+# # count = 0
+# def Try(k):
+#     for v in range(x[k-1] + 1, n-m+k+2):
+#         x[k] = v
+#         if k == m-1: 
+#             solution()
+#         else:
+#             Try(k+1)
 
-def solution():
-    # global count
-    for i in range(m):
-        print(x[i], end = ' ')
-    # count += 1
-    print()
-Try(0)
+# def solution():
+#     # global count
+#     for i in range(m):
+#         print(x[i], end = ' ')
+#     # count += 1
+#     print()
+# Try(0)
 # print('Number of subsets:',count)
 
 # ----------------------------------------------
@@ -241,31 +241,31 @@ Try(0)
     0 0 0 0 0 0 0 0 0 """
 
 # Toán rời rạc
-n = 5
-count = 0
-x = [0 for i in range(n)]
-def solution():
-    global count
-    count += 1
-    # for i in range(n):
-    #     print(x[i], end = ' ')
-    # print()
+# n = 5
+# count = 0
+# x = [0 for i in range(n)]
+# def solution():
+#     global count
+#     count += 1
+#     # for i in range(n):
+#     #     print(x[i], end = ' ')
+#     # print()
 
-def check(x,k):
-    if k == 0:
-        return True
-    if x[k-1] == x[k] == 0 or x[k-1] == x[k] == 1:
-        return False
-    return True
+# def check(x,k):
+#     if k == 0:
+#         return True
+#     if x[k-1] == x[k] == 0 or x[k-1] == x[k] == 1:
+#         return False
+#     return True
 
-def Try(k):
-    for v in range(3):
-        if check(x,k):
-            x[k] = v
-            if k == n-1:
-                solution()
-            else:
-                Try(k+1)
+# def Try(k):
+#     for v in range(3):
+#         if check(x,k):
+#             x[k] = v
+#             if k == n-1:
+#                 solution()
+#             else:
+#                 Try(k+1)
 
-Try(0)
-print(count)
+# Try(0)
+# print(count)
